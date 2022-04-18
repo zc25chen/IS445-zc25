@@ -1,0 +1,32 @@
+[var name:"selectVal" value:"Urbana" /]
+[Select value:selectVal options:`["Urbana", "Champaign"]`  /]
+
+[data name:"Life_expectancy" source:"Life Expectancy Data.csv" /]
+
+[Table data:Life_expectancy /]
+
+The dataset was obtained from Kaggle website. It was originally collected from WHO. 
+The dataset records the average life expectancy of people from different countries from 2000 to 2015.
+The dataset also include multiple items, which are factors that potentially influence the life expectancy of people, such as BMI, diseases, and thinness of children.
+The line graph below shows the relationship between column "infant deaths" and column "Life expectancy ". 
+The relationship indicates how infant deaths rate is affecting the life expectancy. 
+
+[IdyllVegaLite data:Life_expectancy spec:`{
+  width: 500,
+  length: 500,
+  mark: "line",
+  encoding: {
+    x: {
+      field: "infant deaths",
+      type: "quantitative",
+      axis: {title: "Infant Deaths"},
+      scale: {domain: [0,100]}
+    },
+    y: {
+      field: "Life expectancy ",
+      type: "quantitative",
+      axis: {title: "Life Expectancy"},
+      scale: { domain: [0,100] }
+    }
+  }
+}` /]
